@@ -5,8 +5,12 @@ moduleForModel('friend', 'Unit | Model | friend', {
   needs: []
 });
 
-test('it exists', function(assert) {
-  var model = this.subject();
+test('has variables', function(assert) {
+  var model = this.subject({ firstName: 'Bob', lastName: 'Smith', email: 'bob@bob.com', twitter: '@bob', totalArticles: '1' });
   // var store = this.store();
-  assert.ok(!!model);
+  assert.equal(model.get('firstName'), 'Bob', 'firstName');
+  assert.equal(model.get('lastName'), 'Smith', 'lastName');
+  assert.equal(model.get('email'), 'bob@bob.com', 'email');
+  assert.equal(model.get('twitter'), '@bob', 'twitter');
+  assert.equal(model.get('totalArticles'), '1', 'totalArticles');
 });
